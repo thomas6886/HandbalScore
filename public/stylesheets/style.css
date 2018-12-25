@@ -1,0 +1,27 @@
+table {
+    /*display: block;*/
+    /*overflow-y: scroll;*/
+    font-size: 25px;
+}
+
+.minusbtn {
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    background-color: #f44336;
+}
+
+.plusbtn {
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    background-color: #4CAF50;
+}

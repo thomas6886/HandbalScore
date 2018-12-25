@@ -1,24 +1,38 @@
 extends layout
-    div.container
-      div.row
-        div.col
-          h2 Test dit werkt wel goed trouwens
-        div.col
-          // Wedstrijden list
-          h2 Alle Wedstrijden
-          #wedstrijdenList
-            table.table
+block content
+    .container-fluid
+      .row
+        .col-sm
+          h2 Speelt nu:
+          #wedstrijden_nuList
+            table.table.table-striped
               thead
-                th Dag
                 th Poule
-                th Begin Tijd
-                th Eind Tijd
-                th Veld
                 th Thuis
                 th Gasten
                 th Punten Thuis
                 th Punten Gasten
+                th Dag
+                th Start
+                th Eind
+                th Veld
               tbody
+        .col-sm
+          h2 Speelt straks:
+          #wedstrijden_straksList
+            table.table.table-striped
+              thead
+                th Poule
+                th Thuis
+                th Gasten
+                th Punten Thuis
+                th Punten Gasten
+                th Dag
+                th Start
+                th Eind
+                th Veld
+              tbody
+
       // /USER LIST
 
     // /WRAPPER
