@@ -1,7 +1,7 @@
 table {
     /*display: block;*/
     /*overflow-y: scroll;*/
-    /*font-size: 25px;*/
+   
 }
 #adminTable {
     font-size: 25px;
@@ -33,6 +33,9 @@ table {
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
     /*Hide Poule*/
+    table{
+        font-size: 12px;
+    }
     th:nth-of-type(1) {display: none;}
     td:nth-of-type(1) {display: none;}
 
