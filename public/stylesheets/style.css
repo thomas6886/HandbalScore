@@ -1,6 +1,9 @@
 table {
     /*display: block;*/
     /*overflow-y: scroll;*/
+    /*font-size: 25px;*/
+}
+#adminTable {
     font-size: 25px;
 }
 
