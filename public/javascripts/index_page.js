@@ -49,8 +49,7 @@ function populateTable_wedstrijden_nu() {
       tableContent += '<td>' + this.poule + '</td>';
       tableContent += '<td>' + this.thuis + '</td>';
       tableContent += '<td>' + this.gasten + '</td>';
-      tableContent += '<td>' + this.punten_thuis + '</td>';
-      tableContent += '<td>' + this.punten_gasten + '</td>';
+      tableContent += '<td>' + this.punten_thuis + " - " + this.punten_gasten +'</td>';
       tableContent += '<td>' + this.dag + '</td>';
       tableContent += '<td>' + beginTime.getUTCHours() + ":" +beginTime.getUTCMinutes() + '</td>';
       tableContent += '<td>' + endTime.getUTCHours() + ":" +endTime.getUTCMinutes() + '</td>';
@@ -79,8 +78,7 @@ function populateTable_wedstrijden_straks() {
       tableContent += '<td>' + this.poule + '</td>';
       tableContent += '<td>' + this.thuis + '</td>';
       tableContent += '<td>' + this.gasten + '</td>';
-      tableContent += '<td>' + this.punten_thuis + '</td>';
-      tableContent += '<td>' + this.punten_gasten + '</td>';
+      tableContent += '<td>' + this.punten_thuis + " - " + this.punten_gasten +'</td>';
       tableContent += '<td>' + this.dag + '</td>';
       tableContent += '<td>' + beginTime.getUTCHours() + ":" +beginTime.getUTCMinutes() + '</td>';
       tableContent += '<td>' + endTime.getUTCHours() + ":" +endTime.getUTCMinutes() + '</td>';
