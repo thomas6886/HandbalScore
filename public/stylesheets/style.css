@@ -69,14 +69,13 @@ only screen and (max-width: 760px),
     /*
     Label the data
     */
-    td:nth-of-type(1):before { content: "First Name"; }
-    td:nth-of-type(2):before { content: "Last Name"; }
-    td:nth-of-type(3):before { content: "Job Title"; }
-    td:nth-of-type(4):before { content: "Favorite Color"; }
-    td:nth-of-type(5):before { content: "Wars of Trek?"; }
-    td:nth-of-type(6):before { content: "Secret Alias"; }
-    td:nth-of-type(7):before { content: "Date of Birth"; }
-    td:nth-of-type(8):before { content: "Dream Vacation City"; }
-    td:nth-of-type(9):before { content: "GPA"; }
-    td:nth-of-type(10):before { content: "Arbitrary Data"; }
+    td:nth-of-type(1):before { content: "Poule"; }
+    td:nth-of-type(2):before { content: "Thuis"; }
+    td:nth-of-type(3):before { content: "Gasten"; }
+    td:nth-of-type(4):before { content: "Punten Thuis"; }
+    td:nth-of-type(5):before { content: "Punten Gasten"; }
+    td:nth-of-type(6):before { content: "Dag"; }
+    td:nth-of-type(7):before { content: "Start"; }
+    td:nth-of-type(8):before { content: "Eind"; }
+    td:nth-of-type(9):before { content: "Veld"; }
 }
