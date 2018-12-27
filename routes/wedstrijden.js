@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-//Authentication
-var auth = require('http-auth');
-var basic = auth.basic({
-      realm: "Protected Area"
-    }, function (username, password, callback) { // Custom authentication method.
-      callback(username === "test" && password === "test");
-    }
-);
-
 /* GET alle wedstrijden. USAGE: url/wedstrijden/wedstrijdenlist*/
 router.get('/wedstrijdenlist', function(req, res) {
   var db = req.db;
@@ -75,29 +66,5 @@ router.get('/wedstrijdenperdag', function(req, res) {
 });
 
 
-/*PUT nieuwe score wedstrijd per wedstrijdID. USAGE: url/wedstrijden/updatescore?wedstrijd=WEDSTRIJD&team=punten_thuis&increment=1*/
-//router.put('/updatescore', auth.connect(basic),function (req, res) {
-router.put('/updatescore', function (req, res) {
-  var db = req.db;
-  var collection = db.get('wedstrijden');
-  //req.connection.remoteAdd
-
-  if(req.query.team == 'punten_thuis'){
-    console.log("THUIS");
-    collection.findOneAndUpdate({wedstrijd_id : parseInt(req.query.wedstrijd)}, {$inc: {punten_thuis : parseInt(req.query.increment)}},
-        function(err){
-          if(err) throw err;
-            res.send('PUT request to the homepage');
-        });
-  }else{
-    collection.findOneAndUpdate({wedstrijd_id : parseInt(req.query.wedstrijd)}, {$inc: {punten_gasten : parseInt(req.query.increment)}},
-        function(err) {
-          if (err) throw err;
-          res.send('PUT request to the homepage');
-
-        });
-  }
-
-});
 
 module.exports = router;

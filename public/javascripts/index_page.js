@@ -6,9 +6,14 @@ $(document).ready(function() {
   populateTable_wedstrijden_nu();
   populateTable_wedstrijden_straks();
   populateTable_wedstrijden_admin();
+
+  window.setInterval(updateClientTables, 15000);
 });
 
-
+function updateClientTables(){
+  populateTable_wedstrijden_nu();
+  populateTable_wedstrijden_straks();
+}
 
 // Functions =============================================================
 function buttonEnabler(btn){
@@ -21,7 +26,7 @@ function buttonEnabler(btn){
   }else{
     incr = 0;
   }
-  let postURL = "/wedstrijden/updatescore?wedstrijd="+btn_values[2]+"&team=punten_"+btn_values[1]+"&increment="+incr;
+  let postURL = "/admin/updatescore?wedstrijd="+btn_values[2]+"&team=punten_"+btn_values[1]+"&increment="+incr;
   $.ajax({
     type: 'PUT', // Use POST with X-HTTP-Method-Override or a straight PUT if appropriate.
     dataType: 'json', // Set datatype - affects Accept header

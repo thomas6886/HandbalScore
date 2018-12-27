@@ -15,11 +15,7 @@ var indexRouter = require('./routes/index');
 var wedstrijdenRouter = require('./routes/wedstrijden');
 var adminRouter = require('./routes/admin');
 
-
-
 var app = express();
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
