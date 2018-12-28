@@ -1,4 +1,5 @@
 var express = require('express');
+var moment = require('moment-timezone');
 var router = express.Router();
 
 /* GET alle wedstrijden. USAGE: url/wedstrijden/wedstrijdenlist*/
@@ -31,7 +32,8 @@ router.get('/wedstrijdenperpoule', function(req, res) {
 /* GET alle wedstrijden die nu gespeeld worden*/
 router.get('/wedstrijden_nu', function(req, res) {
   //var currTime = new Date("2018-12-29 10:55:00.000");
-  var currTime = new Date();
+  //var currTime = new Date();
+  currTime = moment().tz('Europe/Amsterdam').format();
   var db = req.db;
   var collection = db.get('wedstrijden');
   console.log(currTime);
