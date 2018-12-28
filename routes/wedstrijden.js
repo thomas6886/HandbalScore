@@ -31,7 +31,7 @@ router.get('/wedstrijdenperpoule', function(req, res) {
 /* GET alle wedstrijden die nu gespeeld worden*/
 router.get('/wedstrijden_nu', function(req, res) {
   //var currTime = new Date("2018-12-29 10:55:00.000");
-  var currTime = new Date("2018-12-29T14:57:15.967Z");
+  var currTime = new Date();
   var db = req.db;
   var collection = db.get('wedstrijden');
   console.log(currTime);
@@ -43,8 +43,8 @@ router.get('/wedstrijden_nu', function(req, res) {
 
 /* GET alle wedstrijden die nu straks (+1 uur) worden*/
 router.get('/wedstrijden_straks', function(req, res) {
-  var timeToCheck = new Date("2018-12-29T14:57:15.967Z");
-  var timeToCheck_plus1 = new Date("2018-12-29T14:57:15.967Z");
+  var timeToCheck = new Date();
+  var timeToCheck_plus1 = new Date();
   timeToCheck_plus1.setHours(timeToCheck_plus1.getHours() + 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
@@ -54,8 +54,8 @@ router.get('/wedstrijden_straks', function(req, res) {
 });
 
 router.get('/wedstrijden_admin', function(req, res) {
-  var timeToCheck = new Date("2018-12-29T14:57:15.967Z");
-  var timeToCheck_minus1 = new Date("2018-12-29T14:57:15.967Z");
+  var timeToCheck = new Date();
+  var timeToCheck_minus1 = new Date();
   timeToCheck_minus1.setHours(timeToCheck_minus1.getHours() - 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
