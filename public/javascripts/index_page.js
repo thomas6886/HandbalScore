@@ -55,8 +55,7 @@ function populateTable_wedstrijden_nu() {
   // Empty content string
   var tableContent = '';
   // jQuery AJAX call for JSON
-  //$.getJSON( '/wedstrijden/wedstrijden_nu', function( data ) {
-  $.getJSON( '/wedstrijden/wedstrijdenlist', function( data ) {
+  $.getJSON( '/wedstrijden/wedstrijden_nu', function( data ) {
       // For each item in our JSON, add a table row and cells to the content string
       $.each(data, function(){
         var beginTime = new Date(this.begin_tijd);
