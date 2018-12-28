@@ -45,13 +45,24 @@ router.get('/wedstrijden_straks', function(req, res) {
 });
 
 /* GET alle wedstrijden die aan de admin vertoond moeten worden (nu gespeeld tot een uur geleden)*/
+/*router.get('/wedstrijden_admin', function(req, res) {
+  var timeToCheck = new Date("2018-12-29T14:57:15.967Z");
+  var timeToCheck_minus1 = new Date("2018-12-29T14:57:15.967Z");
+  timeToCheck_minus1.setHours(timeToCheck_minus1.getHours() - 1);
+  var db = req.db;
+  var collection = db.get('wedstrijden');
+  collection.find({begin_tijd: {$gte: timeToCheck_minus1, $lte: timeToCheck}},{"sort" : ['begin_tijd', -1]},function(e,docs){
+    res.json(docs);
+  });
+});*/
+
 router.get('/wedstrijden_admin', function(req, res) {
   var timeToCheck = new Date("2018-12-29T14:57:15.967Z");
   var timeToCheck_minus1 = new Date("2018-12-29T14:57:15.967Z");
   timeToCheck_minus1.setHours(timeToCheck_minus1.getHours() - 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
-  collection.find({begin_tijd: {$gte: timeToCheck_minus1, $lte: timeToCheck}},{"sort" : ['begin_tijd', 'asc']},function(e,docs){
+  collection.find({begin_tijd: {$gte: timeToCheck_minus1, $lte: timeToCheck}},{sort : {begin_tijd: -1}},function(e,docs){
     res.json(docs);
   });
 });
