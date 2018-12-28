@@ -11,4 +11,8 @@ router.get('/poule', function(req, res, next) {
   res.render('poule');
 });
 
+/* GET dag page. */
+router.get('/dag', function(req, res, next) {
+  res.render('dag');
+});
 module.exports = router;

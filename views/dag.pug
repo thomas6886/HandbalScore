@@ -1,0 +1,26 @@
+extends layout
+block content
+    .container-fluid
+        .row
+            .col-sm
+                h2 Selecteer dag
+                div
+                    select#propertyType.select.form-control.input-lg(onchange="changeDag(this.value)", name='dagChooser')
+                        option(value='Zaterdag') Zaterdag
+                        option(value='Zondag') Zondag
+
+        .row
+            .col-sm
+                #wedstrijden_dagList
+                    #table-responsive
+                        table.table.table-striped
+                            thead
+                                th Poule
+                                th Thuis
+                                th Gasten
+                                th Stand
+                                th Dag
+                                th Start
+                                th Eind
+                                th Veld
+                            tbody

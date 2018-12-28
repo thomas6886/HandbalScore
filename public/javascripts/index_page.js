@@ -6,6 +6,8 @@ $(document).ready(function() {
   populateTable_wedstrijden_nu();
   populateTable_wedstrijden_straks();
   populateTable_wedstrijden_admin();
+  populateTable_poule("E1");
+  populateTable_dag("Zaterdag");
 
   window.setInterval(updateClientTables, 15000);
 });
@@ -18,6 +20,10 @@ function updateClientTables(){
 // Functions =============================================================
 function changePoule(pouleName){
   populateTable_poule(pouleName);
+}
+
+function changeDag(dagName){
+  populateTable_dag(dagName);
 }
 
 function buttonEnabler(btn){
@@ -99,6 +105,32 @@ function populateTable_wedstrijden_straks() {
     });
     // Inject the whole content string into our existing HTML table
     $('#wedstrijden_straksList table tbody').html(tableContent);
+  });
+}
+
+function populateTable_dag(dag) {
+  // Empty content string
+  var tableContent = '';
+  // jQuery AJAX call for JSON
+  $.getJSON( '/wedstrijden/wedstrijdenperdag?dag='+dag, function( data ) {
+    // For each item in our JSON, add a table row and cells to the content string
+    $.each(data, function(){
+      var beginTime = new Date(this.begin_tijd);
+      var endTime = new Date(this.eind_tijd);
+      tableContent += '<tr>';
+      tableContent += '<td>' + this.poule + '</td>';
+      tableContent += '<td>' + this.thuis + '</td>';
+      tableContent += '<td>' + this.gasten + '</td>';
+      tableContent += '<td>' + this.punten_thuis + " - " + this.punten_gasten +'</td>';
+      tableContent += '<td>' + this.dag + '</td>';
+      tableContent += '<td>' + beginTime.getUTCHours() + ":" +beginTime.getUTCMinutes() + '</td>';
+      tableContent += '<td>' + endTime.getUTCHours() + ":" +endTime.getUTCMinutes() + '</td>';
+      tableContent += '<td>' + this.veld + '</td>';
+      //tableContent += '<td><a href="#" class="linkdeleteuser" rel="' + this._id + '">delete</a></td>';
+      tableContent += '</tr>';
+    });
+    // Inject the whole content string into our existing HTML table
+    $('#wedstrijden_dagList table tbody').html(tableContent);
   });
 }
 
