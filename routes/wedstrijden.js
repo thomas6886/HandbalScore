@@ -32,8 +32,8 @@ router.get('/wedstrijdenperpoule', function(req, res) {
 /* GET alle wedstrijden die nu gespeeld worden*/
 router.get('/wedstrijden_nu', function(req, res) {
   //var currTime = new Date("2018-12-29 10:55:00.000");
-  //var currTime = new Date();
-  currTime = moment().tz('Europe/Amsterdam').format();
+  var currTime = new Date();
+  currTime.setHours(currTime.getHours() + 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
   console.log(currTime);
@@ -46,8 +46,9 @@ router.get('/wedstrijden_nu', function(req, res) {
 /* GET alle wedstrijden die nu straks (+1 uur) worden*/
 router.get('/wedstrijden_straks', function(req, res) {
   var timeToCheck = new Date();
+  timeToCheck.setHours(timeToCheck.getHours() + 1);
   var timeToCheck_plus1 = new Date();
-  timeToCheck_plus1.setHours(timeToCheck_plus1.getHours() + 1);
+  timeToCheck_plus1.setHours(timeToCheck_plus1.getHours() + 2);
   var db = req.db;
   var collection = db.get('wedstrijden');
   collection.find({begin_tijd: {$gte: timeToCheck, $lte: timeToCheck_plus1}},{"sort" : ['begin_tijd', 'asc']},function(e,docs){
@@ -57,8 +58,8 @@ router.get('/wedstrijden_straks', function(req, res) {
 
 router.get('/wedstrijden_admin', function(req, res) {
   var timeToCheck = new Date();
+  timeToCheck.setTime(timeToCheck.getHours() + 1);
   var timeToCheck_minus1 = new Date();
-  timeToCheck_minus1.setHours(timeToCheck_minus1.getHours() - 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
   collection.find({begin_tijd: {$gte: timeToCheck_minus1, $lte: timeToCheck}},{sort : {begin_tijd: -1}},function(e,docs){
