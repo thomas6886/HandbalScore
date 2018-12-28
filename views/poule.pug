@@ -1,0 +1,35 @@
+extends layout
+block content
+    .container-fluid
+        .row
+            .col-sm
+                h2 Selecteer poule
+                div
+                    select#propertyType.select.form-control.input-lg(onchange="changePoule(this.value)", name='pouleChooser')
+                        option(value='E1') E1
+                        option(value='E2') E2
+                        option(value='D3') D3
+                        option(value='D2') D2
+                        option(value='D1') D1
+                        option(value='C') C
+                        option(value='B1') B1
+                        option(value='C2') C2
+                        option(value='C1') C1
+                        option(value='B2') B2
+                        option(value='A1') A1
+                        option(value='Dames 2') Dames 2
+        .row
+            .col-sm
+                #wedstrijden_pouleList
+                    #table-responsive
+                        table.table.table-striped
+                            thead
+                                th Poule
+                                th Thuis
+                                th Gasten
+                                th Stand
+                                th Dag
+                                th Start
+                                th Eind
+                                th Veld
+                            tbody
