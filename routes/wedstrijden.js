@@ -33,7 +33,7 @@ router.get('/wedstrijdenperpoule', function(req, res) {
 router.get('/wedstrijden_nu', function(req, res) {
   //var currTime = new Date("2018-12-29 10:55:00.000");
   var currTime = new Date();
-  currTime.setHours(currTime.getHours() - 1);
+  currTime.setHours(currTime.getHours() - 2);
   var db = req.db;
   var collection = db.get('wedstrijden');
   console.log(currTime);
