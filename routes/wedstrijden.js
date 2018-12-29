@@ -61,6 +61,7 @@ router.get('/wedstrijden_admin', function(req, res) {
   var timeToCheck = new Date();
   timeToCheck.setTime(timeToCheck.getHours() + 2);
   var timeToCheck_minus1 = new Date();
+  timeToCheck_minus1.setTime(timeToCheck_minus1.getHours() - 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
   collection.find({begin_tijd: {$gte: timeToCheck_minus1, $lte: timeToCheck}},{sort : {begin_tijd: -1}},function(e,docs){
