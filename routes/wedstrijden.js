@@ -46,9 +46,9 @@ router.get('/wedstrijden_nu', function(req, res) {
 /* GET alle wedstrijden die nu straks (+1 uur) worden*/
 router.get('/wedstrijden_straks', function(req, res) {
   var timeToCheck = new Date();
-  //timeToCheck.setHours(timeToCheck.getHours() + 1);
+  timeToCheck.setHours(timeToCheck.getHours() - 1);
   var timeToCheck_plus1 = new Date();
-  timeToCheck_plus1.setHours(timeToCheck_plus1.getHours() + 1);
+  //timeToCheck_plus1.setHours(timeToCheck_plus1.getHours() + 1);
   var db = req.db;
   var collection = db.get('wedstrijden');
   collection.find({begin_tijd: {$gte: timeToCheck, $lte: timeToCheck_plus1}},{"sort" : ['begin_tijd', 'asc']},function(e,docs){
