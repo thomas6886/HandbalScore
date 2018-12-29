@@ -59,7 +59,7 @@ router.get('/wedstrijden_straks', function(req, res) {
 
 router.get('/wedstrijden_admin', function(req, res) {
   var timeToCheck = new Date();
-  timeToCheck.setTime(timeToCheck.getHours() + 1);
+  timeToCheck.setTime(timeToCheck.getHours() + 2);
   var timeToCheck_minus1 = new Date();
   var db = req.db;
   var collection = db.get('wedstrijden');
